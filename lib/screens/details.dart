@@ -1,13 +1,12 @@
 
 import 'package:after_layout/after_layout.dart';
 import 'package:dro_app/model/drug.dart';
-import 'package:dro_app/model/productModel.dart';
+
 import 'package:dro_app/provider/appState.dart';
-import 'package:dro_app/reusable/box.dart';
-import 'package:dro_app/reusable/customDialog.dart';
+
 import 'package:dro_app/reusable/custom_button.dart';
 import 'package:dro_app/reusable/productdetails.dart';
-import 'package:dro_app/screens/GridScreen.dart';
+
 import 'package:dro_app/utils/navigation/navigator.dart';
 import 'package:dro_app/utils/sizeConfig/sizeConfig.dart';
 import 'package:dro_app/utils/styles/color_utils.dart';
