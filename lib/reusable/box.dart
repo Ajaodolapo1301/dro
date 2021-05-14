@@ -17,13 +17,15 @@ class Box extends StatelessWidget {
       },
       child: Material(
         elevation: 3.0,
+
+        borderRadius: BorderRadius.circular(15),
         child: Container(
           margin: EdgeInsets.all(4),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
-                flex: 4,
+                flex: 2,
                   child: Center(child: Image.asset(drug.image))),
 
 
@@ -34,8 +36,8 @@ class Box extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(drug.name, style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),),
-                    Text(drug.desc, style: TextStyle(fontSize: 13,))
+                    Text(drug.name, style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold),),
+                    Text(drug.desc, style: TextStyle(fontSize: 11,))
 
 
 

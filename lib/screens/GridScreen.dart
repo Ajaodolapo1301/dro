@@ -41,6 +41,7 @@ List<Drug> filteredList = [];
       child: SafeArea(
               bottom: false,
         child: Scaffold(
+          backgroundColor:Colors.white ,
           body: SlidingUpPanel(
             onPanelClosed: (){
               setState(() {
@@ -70,39 +71,41 @@ List<Drug> filteredList = [];
                     preferredActionOnBackPressed: () {},
                     text: "${appState.listofDrugs.length.toString()} item(s)",
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 40),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
 
-                        ThreeCircles(child:
-                        Transform.scale(
-                            scale: 0.4,
-                            child: Image.asset("assets/images/ar.png",height: 8,)),
-                        ),
+                        children: [
 
-                        ThreeCircles(
-                            child: Transform.scale(
-                                scale: 0.4,
-                                child: Image.asset("assets/images/filter.png",height: 8,))
-                        ),
-
-                        InkWell(
-                            onTap: (){
-                              setState(() {
-                                show = !show;
-                              });
-                            },
-                            child: ThreeCircles(child:
-                            Transform.scale(
-                                scale: 0.4,
-                                child: Image.asset("assets/images/search.png",height: 8,))
-                            )
-                        )
-                      ]
-                      ,
-                    ),
+                          ThreeCircles(child:
+                          Transform.scale(
+                              scale: 0.4,
+                              child: Image.asset("assets/images/ar.png",height: 8,)),
+                          ),
+                          SizedBox(width: 40,),
+                          ThreeCircles(
+                              child: Transform.scale(
+                                  scale: 0.4,
+                                  child: Image.asset("assets/images/filter.png",height: 8,))
+                          ),
+                          SizedBox(width: 40,),
+                          InkWell(
+                              onTap: (){
+                                setState(() {
+                                  show = !show;
+                                });
+                              },
+                              child: ThreeCircles(child:
+                              Transform.scale(
+                                  scale: 0.4,
+                                  child: Image.asset("assets/images/search.png",height: 8,))
+                              )
+                          )
+                        ]
+                        ,
+                      ),
+                    ],
                   ),
 
                   show ?      SizedBox(height: 20,) : SizedBox(),
@@ -157,7 +160,7 @@ List<Drug> filteredList = [];
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.8,
+                      childAspectRatio: 0.7,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
                       // Generate 100 widgets that display their index in the List.

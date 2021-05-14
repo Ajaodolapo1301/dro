@@ -17,6 +17,7 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
           child: Icon(
@@ -30,7 +31,7 @@ class Header extends StatelessWidget {
                 : pop(context);
           },
         ),
-        Spacer(),
+        // Spacer(),
         Text(
           text,
           style: TextStyle(
@@ -39,13 +40,13 @@ class Header extends StatelessWidget {
             fontSize: 15,
           ),
         ),
-        Spacer(),
+        // Spacer(),
         Opacity(
           opacity: 0,
           child: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
-              size: 18,
+              size: 14,
             ),
             onPressed: null,
           ),
