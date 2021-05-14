@@ -11,7 +11,7 @@ import 'package:dro_app/utils/sizeConfig/sizeConfig.dart';
 import 'package:dro_app/utils/styles/color_utils.dart';
 import 'package:dro_app/utils/widget/header.dart';
 import 'package:flutter/material.dart';
-import 'package:flat_icons_flutter/flat_icons_flutter.dart';
+
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 class GridScreen extends StatefulWidget {
