@@ -7,6 +7,7 @@ import 'package:dro_app/reusable/box.dart';
 import 'package:dro_app/reusable/threeCircles.dart';
 import 'package:dro_app/screens/details.dart';
 import 'package:dro_app/utils/navigation/navigator.dart';
+import 'package:dro_app/utils/sizeConfig/sizeConfig.dart';
 import 'package:dro_app/utils/styles/color_utils.dart';
 import 'package:dro_app/utils/widget/header.dart';
 import 'package:flutter/material.dart';
@@ -59,7 +60,7 @@ List<Drug> filteredList = [];
             color: kprimaryColor,
             maxHeight: MediaQuery.of(context).size.height,
 
-          minHeight: 60,
+          minHeight: 70,
           borderRadius: BorderRadius.only(topLeft: Radius.circular(25), topRight: Radius.circular(25)),
             panelBuilder: (ScrollController sc){
 
@@ -71,7 +72,7 @@ List<Drug> filteredList = [];
                 children: [
                   Header(
                     preferredActionOnBackPressed: () {},
-                    text: "1234",
+                    text: "${appState.listofDrugs.length.toString()} item(s)",
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -81,14 +82,14 @@ List<Drug> filteredList = [];
 
                         ThreeCircles(child:
                         Transform.scale(
-                            scale: 0.5,
-                            child: Image.asset("assets/images/ar.png",height: 10,)),
+                            scale: 0.4,
+                            child: Image.asset("assets/images/ar.png",height: 8,)),
                         ),
 
                         ThreeCircles(
                             child: Transform.scale(
-                                scale: 0.5,
-                                child: Image.asset("assets/images/filter.png",height: 10,))
+                                scale: 0.4,
+                                child: Image.asset("assets/images/filter.png",height: 8,))
                         ),
 
                         InkWell(
@@ -99,8 +100,8 @@ List<Drug> filteredList = [];
                             },
                             child: ThreeCircles(child:
                             Transform.scale(
-                                scale: 0.5,
-                                child: Image.asset("assets/images/search.png",height: 10,))
+                                scale: 0.4,
+                                child: Image.asset("assets/images/search.png",height: 8,))
                             )
                         )
                       ]
@@ -110,7 +111,7 @@ List<Drug> filteredList = [];
 
                   show ?      SizedBox(height: 20,) : SizedBox(),
                   show ?          Container(
-                    height: 50,
+                    height: 40,
                     padding: EdgeInsets.symmetric(horizontal: 21),
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
@@ -189,7 +190,7 @@ List<Drug> filteredList = [];
 
       decoration: BoxDecoration(
           color: kprimaryColor,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
+          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
       ),
 
       child: Column(
@@ -205,10 +206,11 @@ List<Drug> filteredList = [];
           ),
           // SizedBox(height: 10,),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0 ),
+            padding:  EdgeInsets.only(left: 20 , bottom: 20, right: 20, ),
             child: Row(
-              mainAxisAlignment: open ? MainAxisAlignment.center :  MainAxisAlignment.spaceBetween,
+              mainAxisAlignment:  MainAxisAlignment.spaceBetween,
               children: [
+
                 Row(
                   children: [
                     Image.asset("assets/images/shopping-bag.png", height: 30, color: Colors.white,),
@@ -216,7 +218,9 @@ List<Drug> filteredList = [];
                     Text("Bag", style: TextStyle(fontSize: 20, color: Colors.white),)
                   ],
                 ),
-                open ? SizedBox():      Container(
+
+
+                Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.circle
@@ -228,9 +232,10 @@ List<Drug> filteredList = [];
               ],
             ),
           ),
+
           Container(
 
-            margin: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+            margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
             height: 25,
             // width: 100,
             child: Center(child: Text("Tap on an item to add, remove or delete option", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 10),)),
@@ -256,9 +261,9 @@ List<Drug> filteredList = [];
                           title: Row(
                             children: [
                               Container(
-                                height: 60,
+                                height: 7.3 * SizeConfig.heightMultiplier,
                                 width: 60,
-                                padding: EdgeInsets.all(10),
+                                padding: EdgeInsets.all(15),
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(360) ,
@@ -344,9 +349,9 @@ List<Drug> filteredList = [];
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Total", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700, color: Colors.white)),
+                    Text("Total", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white)),
 
-                    Text( "NGN ${appState.calculateTotal().toString()}", style: TextStyle(fontSize:25, fontWeight: FontWeight.w700, color: Colors.white))
+                    Text( "NGN ${appState.calculateTotal().toString()}", style: TextStyle(fontSize:20, fontWeight: FontWeight.w700, color: Colors.white))
                   ],
                 ),
                 SizedBox(height: 20,),
