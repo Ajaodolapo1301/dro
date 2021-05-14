@@ -425,6 +425,24 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
               ),
             ],
           ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+
+            margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+            height: 25,
+            // width: 100,
+            child: Center(child: Text("Tap on an item to add, remove or delete option", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 10),)),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.white
+            ),
+          ),
+
+          SizedBox(
+            height: 10,
+          ),
           Expanded(
             child: Container(
               child: SingleChildScrollView(
@@ -596,101 +614,7 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
     );
   }
 
-//   void _showAlert(Drug drug, BuildContext context) {
-//     AlertDialog dialog = new AlertDialog(
-//       content: new Container(
-//         width: 300.0,
-//         height: 200.0,
-//         decoration: new BoxDecoration(
-//           shape: BoxShape.rectangle,
-//           color: const Color(0xFFFFFF),
-//           borderRadius: new BorderRadius.all(new Radius.circular(32.0)),
-//         ),
-//         child: new Column(
-//           crossAxisAlignment: CrossAxisAlignment.stretch,
-//           children: <Widget>[
-//             // dialog top
-//             new Container(
-//               // padding: new EdgeInsets.all(10.0),
-//               decoration: new BoxDecoration(
-//                 color: Colors.white,
-//               ),
-//               child: Column(
-//                 children: [
-//                    Text(
-//                     'Successful',
-//                     style: TextStyle(
-//                       color: Colors.black,
-//                       fontSize: 18.0,
-//                       fontWeight: FontWeight.w800,
-//                       fontFamily: 'helvetica_neue_light',
-//                     ),
-//                     textAlign: TextAlign.center,
-//                   ),
-//                   SizedBox(height: 10,),
-//
-//                   Text(
-//                    "${ widget.drug.name} has been added to your bag" ,
-//                     style: TextStyle(
-//                       color: Colors.black,
-//                       fontSize: 15.0,
-//                       fontWeight: FontWeight.w800,
-//                     ),
-//                     textAlign: TextAlign.center,
-//                   ),
-//                 ],
-//               ),
-//             ),
-// Spacer(),
-//             // dialog centre
-//             InkWell(
-//               onTap: (){
-//                 appState.add(drug);
-//               },
-//               child: new Container(
-//                 padding: new EdgeInsets.all(16.0),
-//                 decoration: new BoxDecoration(
-//                   color: const Color(0xFF13b8b5),
-//                 ),
-//                 child: new Text(
-//                   'View bag',
-//                   style: TextStyle(
-//                     color: Colors.white,
-//                     fontSize: 18.0,
-//                     fontFamily: 'helvetica_neue_light',
-//                   ),
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ),
-//             ),
-// SizedBox(height: 10,),
-//             // dialog bottom
-//             InkWell(
-//               onTap: (){
-//               pop(context);
-//               },
-//               child: new Container(
-//                 padding: new EdgeInsets.all(16.0),
-//                 decoration: new BoxDecoration(
-//                   color: const Color(0xFF13b8b5),
-//                 ),
-//                 child: new Text(
-//                   'Done',
-//                   style: TextStyle(
-//                     color: Colors.white,
-//                     fontSize: 18.0,
-//                     fontFamily: 'helvetica_neue_light',
-//                   ),
-//                   textAlign: TextAlign.center,
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//     showDialog(context: context, child: dialog);
-//   }
+
 
   @override
   void afterFirstLayout(BuildContext context) {

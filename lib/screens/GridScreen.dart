@@ -1,17 +1,13 @@
-import 'dart:math';
-
 import 'package:after_layout/after_layout.dart';
 import 'package:dro_app/model/drug.dart';
 import 'package:dro_app/provider/appState.dart';
 import 'package:dro_app/reusable/box.dart';
 import 'package:dro_app/reusable/threeCircles.dart';
 import 'package:dro_app/screens/details.dart';
-import 'package:dro_app/utils/navigation/navigator.dart';
 import 'package:dro_app/utils/sizeConfig/sizeConfig.dart';
 import 'package:dro_app/utils/styles/color_utils.dart';
 import 'package:dro_app/utils/widget/header.dart';
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 class GridScreen extends StatefulWidget {
@@ -274,7 +270,7 @@ List<Drug> filteredList = [];
                               ),
                               SizedBox(width: 15,),
                               Text("${e.quantity} x", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white),),
-                              SizedBox(width: 25,),
+                              SizedBox(width: 16,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
