@@ -181,204 +181,204 @@ List<Drug> filteredList = [];
 
 
 
-  Widget _scrollingList(ScrollController sc){
-    return Container(
+Widget _scrollingList(ScrollController sc){
+  return Container(
 
-      decoration: BoxDecoration(
-          color: kprimaryColor,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
-      ),
+    decoration: BoxDecoration(
+        color: kprimaryColor,
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30))
+    ),
 
-      child: Column(
-        children: [
-          SizedBox(height: 5,),
-          Center(
-            child: Container(
-              // margin: EdgeInsets.only(top: 5),
-              height: 4,
-              width: 40,
-              color: Colors.white,
-            ),
+    child: Column(
+      children: [
+        SizedBox(height: 5,),
+        Center(
+          child: Container(
+            // margin: EdgeInsets.only(top: 5),
+            height: 4,
+            width: 40,
+            color: Colors.white,
           ),
-          // SizedBox(height: 10,),
-          Padding(
-            padding:  EdgeInsets.only(left: 20 , bottom: 20, right: 20, ),
-            child: Row(
-              mainAxisAlignment:  MainAxisAlignment.spaceBetween,
-              children: [
+        ),
+        // SizedBox(height: 10,),
+        Padding(
+          padding:  EdgeInsets.only(left: 20 , bottom: 20, right: 20, ),
+          child: Row(
+            mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+            children: [
 
-                Row(
-                  children: [
-                    Image.asset("assets/images/shopping-bag.png", height: 30, color: Colors.white,),
-                    SizedBox(width: 7,),
-                    Text("Bag", style: TextStyle(fontSize: 20, color: Colors.white),)
-                  ],
+              Row(
+                children: [
+                  Image.asset("assets/images/shopping-bag.png", height: 30, color: Colors.white,),
+
+                  Text("Bag", style: TextStyle(fontSize: 20, color: Colors.white),)
+                ],
+              ),
+
+
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle
                 ),
+                padding: EdgeInsets.all(15),
 
-
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      shape: BoxShape.circle
-                  ),
-                  padding: EdgeInsets.all(15),
-
-                  child: Text(appState.cartlist.length.toString()),
-                )
-              ],
-            ),
+                child: Text(appState.cartlist.length.toString()),
+              )
+            ],
           ),
+        ),
 
-          Container(
+        Container(
 
-            margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
-            height: 25,
-            // width: 100,
-            child: Center(child: Text("Tap on an item to add, remove or delete option", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 10),)),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                color: Colors.white
-            ),
+          margin: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+          height: 25,
+          // width: 100,
+          child: Center(child: Text("Tap on an item to add, remove or delete option", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 10),)),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: Colors.white
           ),
-     appState.cartlist.length == 0  ? Expanded(child: Text("No items")):
-     Expanded(
-            child: Container(
+        ),
+        appState.cartlist.length == 0  ? Expanded(child: Text("No items")):
+        Expanded(
+          child: Container(
 
-              child: SingleChildScrollView(
-                child: Column(
-                  children: appState.cartlist.map((e){
-                    print(e);
-                    return  Container(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: ListTileTheme(
-                        tileColor: Colors.transparent,
-                        child: ExpansionTile(
-                          trailing: Text(e.displayprice.toString(), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
-                          title: Row(
-                            children: [
-                              Container(
-                                height: 7.3 * SizeConfig.heightMultiplier,
-                                width: 60,
-                                padding: EdgeInsets.all(15),
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(360) ,
-                                    image: DecorationImage(
-                                        image:  AssetImage(e.image)
-                                    )
-                                ),
-                              ),
-                              SizedBox(width: 15,),
-                              Text("${e.quantity} x", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white),),
-                              SizedBox(width: 16,),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(e.desc, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
-                                  Text(e.name, style: TextStyle(fontSize: 13,  color: Colors.white))
-
-
-                                ],
-                              )
-                            ],
-                          ),
-                          children: <Widget>[
+            child: SingleChildScrollView(
+              child: Column(
+                children: appState.cartlist.map((e){
+                  print(e);
+                  return  Container(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: ListTileTheme(
+                      tileColor: Colors.transparent,
+                      child: ExpansionTile(
+                        trailing: Text(e.displayprice.toString(), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white)),
+                        title: Row(
+                          children: [
                             Container(
-                              margin: EdgeInsets.symmetric(horizontal: 20),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  InkWell(
-                                      onTap:(){
-                                        appState.remove(e);
-                                      },
-                                      child: Image.asset("assets/images/delete.png", height: 20, color: Colors.white,)),
-                                  Row(
-                                    children: [
-                                      RoundedIcon(
-                                        onPress: (){
-                                          setState(() {
-                                            if(e.quantity > 1){
-                                              e.quantity--;
-                                              e.displayprice  -= e.price;
-                                            }else{
-                                             e.quantity = 1;
-                                            }
-
-                                          });
-                                        },
-                                        child: Image.asset("assets/images/remove.png", height: 15,),
-                                      ),
-
-                                      SizedBox(width: 10,),
-                                      Text(e.quantity.toString(), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
-                                      SizedBox(width: 10,),
-                                      RoundedIcon(
-                                        onPress: (){
-                                          setState(() {
-                                           e.quantity++;
-                                           e.displayprice = e.price * e.quantity;
-                                          });
-                                        },
-                                        child: Image.asset("assets/images/plus.png", height: 15),
-                                      ),
-                                    ],
+                              height: 7.3 * SizeConfig.heightMultiplier,
+                              width: 60,
+                              padding: EdgeInsets.all(15),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(360) ,
+                                  image: DecorationImage(
+                                      image:  AssetImage(e.image)
                                   )
-                                ],
                               ),
+                            ),
+                            SizedBox(width: 15,),
+                            Text("${e.quantity} x", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),),
+                            SizedBox(width: 16,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(e.desc, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white)),
+                                Text(e.name, style: TextStyle(fontSize: 13,  color: Colors.white))
+
+
+                              ],
                             )
                           ],
                         ),
-                      ),
-                    );
+                        children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                InkWell(
+                                    onTap:(){
+                                      appState.remove(e);
+                                    },
+                                    child: Image.asset("assets/images/delete.png", height: 20, color: Colors.white,)),
+                                Row(
+                                  children: [
+                                    RoundedIcon(
+                                      onPress: (){
+                                        setState(() {
+                                          if(e.quantity > 1){
+                                            e.quantity--;
+                                            e.displayprice  -= e.price;
+                                          }else{
+                                            e.quantity = 1;
+                                          }
 
-                  }).toList(),
-                ),
+                                        });
+                                      },
+                                      child: Image.asset("assets/images/remove.png", height: 15,),
+                                    ),
+
+                                    SizedBox(width: 10,),
+                                    Text(e.quantity.toString(), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
+                                    SizedBox(width: 10,),
+                                    RoundedIcon(
+                                      onPress: (){
+                                        setState(() {
+                                          e.quantity++;
+                                          e.displayprice = e.price * e.quantity;
+                                        });
+                                      },
+                                      child: Image.asset("assets/images/plus.png", height: 15),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+
+                }).toList(),
               ),
             ),
           ),
+        ),
 
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Total", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white)),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Total", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.white)),
 
-                    Text( "NGN ${appState.calculateTotal().toString()}", style: TextStyle(fontSize:20, fontWeight: FontWeight.w700, color: Colors.white))
-                  ],
-                ),
-                SizedBox(height: 20,),
-                InkWell(
+                  Text( "NGN ${appState.calculateTotal().toString()}", style: TextStyle(fontSize:20, fontWeight: FontWeight.w700, color: Colors.white))
+                ],
+              ),
+              SizedBox(height: 20,),
+              InkWell(
 
-                  onTap: appState.cartlist.length == 0 ? null : (){
+                onTap: appState.cartlist.length == 0 ? null : (){
 
 
-                  },
-                  child: Container(
+                },
+                child: Container(
 
-                    margin: EdgeInsets.symmetric(horizontal: 40),
-                    height: 50,
-                    // width: 100,
-                    child: Center(child: Text("Checkout", style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),)),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: Colors.white
-                    ),
+                  margin: EdgeInsets.symmetric(horizontal: 40),
+                  height: 50,
+                  // width: 100,
+                  child: Center(child: Text("Checkout", style: TextStyle(fontWeight: FontWeight.w800, fontSize: 15),)),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      color: Colors.white
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          SizedBox(height: 100,),
+        ),
+        SizedBox(height: 100,),
 
-        ],
-      ),
-    );
+      ],
+    ),
+  );
 
-  }
+}
 
   @override
   void afterFirstLayout(BuildContext context) {

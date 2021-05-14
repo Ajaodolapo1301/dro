@@ -49,16 +49,19 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
               return _scrollingList(sc);
             },
             body: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                          icon: Icon(Icons.arrow_back),
-                          onPressed: () => pop(context)),
+                      InkWell(
+                      onTap: () => pop(context),
+                          child: Icon(Icons.arrow_back)),
+                      // IconButton(
+                      //     icon: Icon(Icons.arrow_back),
+                      //     onPressed: () => pop(context)),
                       InkWell(
                         onTap: () {
                           setState(() {
@@ -164,7 +167,7 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
                                   ],
                                 ),
                                 SizedBox(
-                                  height: 15,
+                                  height: 25,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -257,7 +260,7 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
                                 Text("Product Details".toUpperCase(),
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 14,
+                                      fontSize: 12,
                                     )),
                                 SizedBox(
                                   height: 15,
@@ -686,7 +689,7 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
                       child: ListTileTheme(
                         tileColor: Colors.transparent,
                         child: ExpansionTile(
-                          trailing: Text(e.displayprice.toString(), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
+                          trailing: Text(e.displayprice.toString(), style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white)),
                           title: Row(
                             children: [
                               Container(
@@ -702,12 +705,12 @@ class _DetailsState extends State<Details> with AfterLayoutMixin<Details> {
                                 ),
                               ),
                               SizedBox(width: 15,),
-                              Text("${e.quantity} x", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white),),
+                              Text("${e.quantity} x", style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white),),
                               SizedBox(width: 16,),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(e.desc, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Colors.white)),
+                                  Text(e.desc, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500, color: Colors.white)),
                                   Text(e.name, style: TextStyle(fontSize: 13,  color: Colors.white))
 
 

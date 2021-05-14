@@ -1,7 +1,10 @@
 
 
 import 'package:dro_app/model/drug.dart';
+import 'package:dro_app/screens/details.dart';
 import 'package:dro_app/utils/navigation/navigator.dart';
+import 'package:dro_app/utils/sizeConfig/sizeConfig.dart';
+import 'package:dro_app/utils/styles/color_utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:overlay_support/overlay_support.dart';
@@ -202,6 +205,9 @@ var displayPrice = 0;
    )
 
  ];
+
+
+
 
 
 }

@@ -16,44 +16,41 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Row(
-        children: [
-          GestureDetector(
-            child: Icon(
-            Platform.isAndroid ?   Icons.arrow_back  : Icons.arrow_back_ios,
+    return Row(
+      children: [
+        GestureDetector(
+          child: Icon(
+          Platform.isAndroid ?   Icons.arrow_back  : Icons.arrow_back_ios,
+            size: 18,
+            color:  Colors.black,
+          ),
+          onTap: () {
+            preferredActionOnBackPressed != null
+                ? preferredActionOnBackPressed()
+                : pop(context);
+          },
+        ),
+        Spacer(),
+        Text(
+          text,
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+        ),
+        Spacer(),
+        Opacity(
+          opacity: 0,
+          child: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
               size: 18,
-              color:  Colors.black,
             ),
-            onTap: () {
-              preferredActionOnBackPressed != null
-                  ? preferredActionOnBackPressed()
-                  : pop(context);
-            },
+            onPressed: null,
           ),
-          Spacer(),
-          Text(
-            text,
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 15,
-            ),
-          ),
-          Spacer(),
-          Opacity(
-            opacity: 0,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                size: 18,
-              ),
-              onPressed: null,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
